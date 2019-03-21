@@ -1,0 +1,21 @@
+.container {
+    display: flex; 
+    align-items: center;
+    border-radius: 0.5rem; 
+    background: var(--background-light);
+    color: var(--foreground-tertiary);
+    padding-left: 0.5rem; 
+    padding-right: 0.5rem; 
+    margin-bottom: 1rem; 
+    min-height: 8rem; 
+    box-shadow: var(--background-tertiary-shadow);
+}
+
+.container .price {
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.favouriteIcon {
+    font-size: 1.5rem; 
+}

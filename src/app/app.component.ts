@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-crypto';
+
+  coins = [
+    {
+      name: 'Bitcoin',
+      price: 1234.56,
+      isFavourite: false
+    },
+    {
+      name: 'Ripple',
+      price: 123.45,
+      isFavourite: true
+    }
+  ]
+
+  onToggleFavourite(coin: any) {
+    coin.isFavourite = !coin.isFavourite;
+  }
 }

@@ -1,0 +1,8 @@
+<div class="container">
+  <h5>{{name}}</h5>
+  <h5 class="price">
+    <fa-icon [icon]="faDollarSign"></fa-icon>
+    {{price}}
+  </h5>
+  <fa-icon [icon]="faHeart" (click)="onToggleFavourite()" class="favouriteIcon"></fa-icon>
+</div>
