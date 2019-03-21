@@ -2,10 +2,13 @@
   <app-nav></app-nav>
 
   <app-page-container>
-      <app-tile *ngFor="let coin of coins" 
-        [name]="coin.name" 
-        [price]="coin.price" 
-        [isFavourite]="coin.isFavourite"
-        (toggleFavourite)="onToggleFavourite(coin)"></app-tile>
+    <app-tile
+      *ngFor="let coin of coins"
+      [name]="coin.name"
+      [price]="coin.quotes[currentCurrency.name].price"
+      [currencyIcon]="currentCurrency.icon"
+      [isFavourite]="coin.isFavourite"
+      (toggleFavourite)="onToggleFavourite(coin)"
+    ></app-tile>
   </app-page-container>
 </div>
