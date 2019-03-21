@@ -1,5 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+:root {
+    /* Colors */ 
+    --foreground-default: #08090A;
+    --foreground-secondary: #41474D;
+    --foreground-tertiary: #797C80;
+    --foreground-quaternary: #E5E5E5;     
+    --foreground-light: #41474D;
+
+    --background-default: #F4FAFF;
+    --background-secondary: #A3B9CC;
+    --background-tertiary: #5C7D99; 
+    --background-light: #FFFFFF; 
+
+    --primary-default: #5DFDCB;
+    --primary-dark: #24B286;
+    --primary-light: #B2FFE7;
+
+    /* Fonts */ 
+    --h1-size: 6rem; 
+    --h1-weight: 400; 
+    --h1-spacing: -1.5px;
+    
+    --h2-size: 3.75rem; 
+    --h2-weight: 400; 
+    --h2-spacing: -0.5px;
+
+    --h3-size: 3rem; 
+    --h3-weight: 400; 
+    --h3-spacing: -0px;
+
+    --h4-size: 2.125rem; 
+    --h4-weight: 400; 
+    --h4-spacing: -0.25px;
+
+    --h5-size: 1.5rem; 
+    --h5-weight: 400; 
+    --h5-spacing: -0px;
+
+    --h6-size: 1.25rem; 
+    --h6-weight: 700; 
+    --h6-spacing: -0.15px;
+
+    --s1-size: 1rem; 
+    --s1-weight: 400; 
+    --s1-spacing: 0.15px;
+    
+    --s2-size: 0.875rem; 
+    --s2-weight: 700; 
+    --s2-spacing: 0.1px;
+
+    --b1-size: 1rem; 
+    --b1-weight: 400; 
+    --b1-spacing: 0.5px;
+
+    --b2-size: 0.875rem; 
+    --b2-weight: 400; 
+    --b2-spacing: 0.25px;
+
+    --button-size: 0.875rem; 
+    --button-weight: 700; 
+    --button-spacing: 1.25px;
+
+    --caption-size: 0.75rem; 
+    --caption-weight: 400; 
+    --caption-spacing: 0.4px;
+
+    --overline-size: 0.625rem; 
+    --overline-weight: 400; 
+    --overline-spacing: 1.5px;
+}
+
 html, body {
     margin: 0; 
     padding: 0; 
+    font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    letter-spacing: var(--h1-spacing);
+}
+
+h2 {
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    letter-spacing: var(--h2-spacing);
+}
+
+h3 {
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+    letter-spacing: var(--h3-spacing);
+}
+
+h4 {
+    font-size: var(--h4-size);
+    font-weight: var(--h4-weight);
+    letter-spacing: var(--h4-spacing);
+}
+
+h5 {
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    letter-spacing: var(--h5-spacing);
+}
+
+h6 {
+    font-size: var(--h6-size);
+    font-weight: var(--h6-weight);
+    letter-spacing: var(--h6-spacing);
+}
+
+.s1 {
+    font-size: var(--s1-size);
+    font-weight: var(--s1-weight);
+    letter-spacing: var(--s1-spacing);
+}
+
+.s2 {
+    font-size: var(--s2-size);
+    font-weight: var(--s2-weight);
+    letter-spacing: var(--s2-spacing);
+}
+
+.b1 {
+    font-size: var(--b1-size);
+    font-weight: var(--b1-weight);
+    letter-spacing: var(--b1-spacing);
+}
+
+.b2 {
+    font-size: var(--b2-size);
+    font-weight: var(--b2-weight);
+    letter-spacing: var(--b2-spacing);
+}
+
+.button {
+    font-size: var(--button-size);
+    font-weight: var(--button-weight);
+    letter-spacing: var(--button-spacing);
+}
+
+.caption {
+    font-size: var(--caption-size);
+    font-weight: var(--caption-weight);
+    letter-spacing: var(--caption-spacing);
+}
+
+.overline {
+    font-size: var(--overline-size);
+    font-weight: var(--overline-weight);
+    letter-spacing: var(--overline-spacing);
+}
+
+.secondary-font {
+    font-family: 'Inconsolata', monospace;
 }

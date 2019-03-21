@@ -1,3 +1,15 @@
 nav {
     height: 4rem; 
+    display: flex; 
+    align-items: center; 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    background-color: var(--background-tertiary);
+    color: var(--background-default);
+    font-size: 1rem; 
+}
+
+nav .title {
+    margin-left: auto; 
+    margin-right: auto; 
 }
