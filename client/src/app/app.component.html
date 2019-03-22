@@ -2,13 +2,23 @@
   <app-nav></app-nav>
 
   <app-page-container>
-    <app-tile
-      *ngFor="let coin of coins"
-      [name]="coin.name"
-      [price]="coin.quotes[currentCurrency.name].price"
-      [currencyIcon]="currentCurrency.icon"
-      [isFavourite]="coin.isFavourite"
-      (toggleFavourite)="onToggleFavourite(coin)"
-    ></app-tile>
+    <div *ngIf="!loadingCoins && !loadingCoinsFailed">
+      <app-tile
+        *ngFor="let coin of coins"
+        [name]="coin.name"
+        [price]="coin.quote[currentCurrency.name].price"
+        [currencyIcon]="currentCurrency.icon"
+        [isFavourite]="coin.isFavourite"
+        (toggleFavourite)="onToggleFavourite(coin)"
+      ></app-tile>
+    </div>
+
+    <div *ngIf="loadingCoins">
+      Loading...
+    </div>
+
+    <div *ngIf="loadingCoinsFailed && !loadingCoins" class="error">
+      <span class="b1">An error has occurred...</span>
+    </div>
   </app-page-container>
 </div>

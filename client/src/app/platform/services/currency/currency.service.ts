@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from "@angular/core";
-import { Currency, EUR, USD } from "./currency";
+import { Currency, EUR, USD } from "../../models/currency/currency";
 
 @Injectable({
   providedIn: "root"

@@ -1,13 +1,13 @@
 <div class="container">
-  <h5>{{ name }}</h5>
+  <h5 class="name">{{ name }}</h5>
   <h5 class="price">
     <fa-icon [icon]="currencyIcon"></fa-icon>
-    {{ price }}
+    {{ price | number }}
   </h5>
   <fa-icon
     [icon]="faHeart"
     (click)="onToggleFavourite()"
-    class="favouriteIcon"
+    class="favouriteIcon icon"
     [ngClass]="{ isFavourite: isFavourite }"
   ></fa-icon>
 </div>
