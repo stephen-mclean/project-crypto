@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+/client/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/client/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -46,3 +47,4 @@ testem.log
 Thumbs.db
 
 .vscode
+.env 
