@@ -13,8 +13,7 @@ import { CryptoCoin } from "./platform/models/coin/coin";
 export class AppComponent implements OnInit, OnDestroy {
   currentCurrency: Currency;
   currencySubscription: Subscription;
-  coins: CryptoCoin[];
-  loadingCoins: boolean;
+  coins: CryptoCoin[] = [];
   loadingCoinsFailed: boolean;
 
   constructor(
@@ -34,16 +33,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   loadCoins() {
-    this.loadingCoins = true;
-    const request = { currency: this.currentCurrency, start: 1, limit: 10 };
+    const start = this.coins.length + 1;
+    const request = { currency: this.currentCurrency, start, limit: 10 };
     this.coinService.getCoins(request).subscribe(
       (data: CryptoCoin[]) => {
-        this.coins = data;
-        this.loadingCoins = false;
+        this.coins = [...this.coins, ...data];
         this.loadingCoinsFailed = false;
       },
       () => {
-        this.loadingCoins = false;
         this.loadingCoinsFailed = true;
       }
     );

@@ -9,10 +9,21 @@ import { PageContainerComponent } from "./page-container/page-container.componen
 
 import { CurrencyService } from "./services/currency/currency.service";
 import { CoinService } from "./services/coin/coin.service";
+import { ScrollComponent } from "./scroll/scroll.component";
 
 @NgModule({
-  declarations: [NavComponent, TileComponent, PageContainerComponent],
-  exports: [NavComponent, TileComponent, PageContainerComponent],
+  declarations: [
+    NavComponent,
+    TileComponent,
+    PageContainerComponent,
+    ScrollComponent
+  ],
+  exports: [
+    NavComponent,
+    TileComponent,
+    PageContainerComponent,
+    ScrollComponent
+  ],
   imports: [CommonModule, HttpClientModule, FontAwesomeModule],
   providers: [CurrencyService, CoinService]
 })
