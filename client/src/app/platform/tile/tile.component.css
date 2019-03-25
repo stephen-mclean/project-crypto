@@ -1,5 +1,6 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
   align-items: center;
   border-radius: 0.5rem;
   background: var(--background-light);
@@ -11,9 +12,16 @@
   box-shadow: var(--background-tertiary-shadow);
 }
 
+.container .name {
+  justify-self: start;
+}
+
 .container .price {
-  margin-left: auto;
-  margin-right: auto;
+  justify-self: center;
+}
+
+.container .icon {
+  justify-self: end;
 }
 
 .favouriteIcon {

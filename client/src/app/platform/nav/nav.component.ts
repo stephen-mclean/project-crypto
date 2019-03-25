@@ -6,7 +6,7 @@ import {
 import { faLightbulb as faRegularLightbulb } from "@fortawesome/free-regular-svg-icons";
 import { ThemeService } from "src/app/theme/theme.service";
 import { CurrencyService } from "../services/currency/currency.service";
-import { Currency } from "../services/currency/currency";
+import { Currency } from "../models/currency/currency";
 import { Subscription } from "rxjs";
 
 @Component({
