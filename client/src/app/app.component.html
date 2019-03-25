@@ -2,7 +2,10 @@
   <app-nav></app-nav>
 
   <app-page-container>
-    <div *ngIf="!loadingCoins && !loadingCoinsFailed">
+    <app-scroll
+      *ngIf="!loadingCoinsFailed || coins.length"
+      (onHitBottom)="loadCoins()"
+    >
       <app-tile
         *ngFor="let coin of coins"
         [name]="coin.name"
@@ -11,13 +14,9 @@
         [isFavourite]="coin.isFavourite"
         (toggleFavourite)="onToggleFavourite(coin)"
       ></app-tile>
-    </div>
+    </app-scroll>
 
-    <div *ngIf="loadingCoins">
-      Loading...
-    </div>
-
-    <div *ngIf="loadingCoinsFailed && !loadingCoins" class="error">
+    <div *ngIf="loadingCoinsFailed && !coins.length" class="error">
       <span class="b1">An error has occurred...</span>
     </div>
   </app-page-container>
