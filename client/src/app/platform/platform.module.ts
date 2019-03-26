@@ -6,10 +6,11 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NavComponent } from "./nav/nav.component";
 import { TileComponent } from "./tile/tile.component";
 import { PageContainerComponent } from "./page-container/page-container.component";
+import { ScrollComponent } from "./scroll/scroll.component";
 
 import { CurrencyService } from "./services/currency/currency.service";
 import { CoinService } from "./services/coin/coin.service";
-import { ScrollComponent } from "./scroll/scroll.component";
+import { LocalStorageService } from "./services/localstorage/local-storage.service";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,6 @@ import { ScrollComponent } from "./scroll/scroll.component";
     ScrollComponent
   ],
   imports: [CommonModule, HttpClientModule, FontAwesomeModule],
-  providers: [CurrencyService, CoinService]
+  providers: [CurrencyService, CoinService, LocalStorageService]
 })
 export class PlatformModule {}
