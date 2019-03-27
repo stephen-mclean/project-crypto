@@ -7,7 +7,7 @@
       (onHitBottom)="loadCoins()"
     >
       <app-tile
-        *ngFor="let coin of coins"
+        *ngFor="let coin of coins; trackBy: trackCoins"
         [name]="coin.name"
         [price]="
           coin.quote[currentCurrency.name]

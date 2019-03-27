@@ -9,7 +9,9 @@ export class FavouritesService {
   private FAVOURITES_STORAGE_KEY: string = "FAVOURITES";
   private favourites: CryptoCoin[] = [];
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(private localStorageService: LocalStorageService) {
+    this.loadFavourites();
+  }
 
   private loadFavourites(): void {
     const loaded =

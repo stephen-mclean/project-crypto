@@ -15,6 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   currentCurrency: Currency;
   currencySubscription: Subscription;
   coins: CryptoCoin[] = [];
+  favouritesLoadedSeparately: number[] = [];
   loadingCoinsFailed: boolean;
   DEFAULT_LOAD_COINS_START: number = 1;
   DEFAULT_LOAD_COINS_AMOUNT: number = 10;
@@ -42,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private getLimitCoinsToLoad(isRefresh: boolean): number {
     return isRefresh && this.coins.length
-      ? this.coins.length
+      ? this.coins.length - this.favouritesLoadedSeparately.length
       : this.DEFAULT_LOAD_COINS_AMOUNT;
   }
 
@@ -63,27 +64,64 @@ export class AppComponent implements OnInit, OnDestroy {
       .filter(favourite => favourite.cmc_rank > amountOfCoinsBeingLoaded)
       .map(coin => coin.id);
 
-    console.log("favs", favouritesIDSToLoadSeparately);
+    if (favouritesIDSToLoadSeparately.length) {
+      this.coinService
+        .getCoinsByIds(favouritesIDSToLoadSeparately, this.currentCurrency)
+        .subscribe(
+          (data: CryptoCoin[]) => {
+            this.coins = [...data, ...this.coins];
+            this.sortCoins();
+          },
+          () => {
+            this.favouritesLoadedSeparately = [];
+          }
+        );
+    }
+
+    this.favouritesLoadedSeparately = favouritesIDSToLoadSeparately;
   }
 
   loadCoins(refresh = false) {
     const start = this.getLoadCoinsStartIndex(refresh);
     const limit = this.getLimitCoinsToLoad(refresh);
 
-    if (refresh) {
-      this.loadFavouriteCoinsOutsideInitialLoad(refresh);
-    }
-
     const request = { currency: this.currentCurrency, start, limit };
     this.coinService.getCoins(request).subscribe(
       (data: CryptoCoin[]) => {
-        this.coins = refresh ? data : [...this.coins, ...data];
+        if (refresh) {
+          this.coins = data;
+          this.loadFavouriteCoinsOutsideInitialLoad(refresh);
+        } else {
+          const dataWithoutFavs = data.filter(
+            item => !this.favouritesLoadedSeparately.includes(item.id)
+          );
+          this.coins = [...this.coins, ...dataWithoutFavs];
+        }
+
+        this.sortCoins();
+
         this.loadingCoinsFailed = false;
       },
       () => {
         this.loadingCoinsFailed = true;
       }
     );
+  }
+
+  trackCoins(index, item) {
+    return item.id;
+  }
+
+  sortCoins() {
+    this.coins = this.coins.sort((a, b) => {
+      if (a.isFavourite && !b.isFavourite) {
+        return -1;
+      } else if (!a.isFavourite && b.isFavourite) {
+        return 1;
+      } else {
+        return a.cmc_rank - b.cmc_rank;
+      }
+    });
   }
 
   ngOnDestroy() {
