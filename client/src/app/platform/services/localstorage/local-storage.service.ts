@@ -8,14 +8,14 @@ export class LocalStorageService {
 
   constructor() {}
 
-  set(key, value) {
+  set(key: string, value: any) {
     localStorage.setItem(
       `${this.BASE_STORAGE_KEY}${key}`,
       JSON.stringify(value)
     );
   }
 
-  get(key) {
+  get(key: string) {
     return JSON.parse(localStorage.getItem(`${this.BASE_STORAGE_KEY}${key}`));
   }
 }

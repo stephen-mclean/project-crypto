@@ -11,6 +11,7 @@ import { ScrollComponent } from "./scroll/scroll.component";
 import { CurrencyService } from "./services/currency/currency.service";
 import { CoinService } from "./services/coin/coin.service";
 import { LocalStorageService } from "./services/localstorage/local-storage.service";
+import { FavouritesService } from "./services/favourites/favourites.service";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,11 @@ import { LocalStorageService } from "./services/localstorage/local-storage.servi
     ScrollComponent
   ],
   imports: [CommonModule, HttpClientModule, FontAwesomeModule],
-  providers: [CurrencyService, CoinService, LocalStorageService]
+  providers: [
+    CurrencyService,
+    CoinService,
+    LocalStorageService,
+    FavouritesService
+  ]
 })
 export class PlatformModule {}
