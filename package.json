@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "heroku-prebuild": "npm install -g angular-cli",
+    "heroku-prebuild": "npm install -g @angular/cli",
     "heroku-postbuild": "cd client && npm install && ng build --prod"
   },
   "repository": {
